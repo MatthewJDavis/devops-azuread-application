@@ -33,5 +33,5 @@ Set as an environment variable.
 ```
 
 ```bash
-terraform apply -var-file="variables.tfvars"
+terraform apply
 ```
