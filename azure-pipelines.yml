@@ -35,6 +35,7 @@ steps:
       -backend-config="key=$TF_STATE_BLOB_FILE" \
       -backend-config="arm_access_key=$TF_STATE_BLOB_ARM_ACCESS_KEY"
   displayName: Terraform Init
+  workingDirectory: $(System.DefaultWorkingDirectory)/terraform
   env:
     TF_STATE_BLOB_ACCOUNT_NAME:   $(kv-tf-state-blob-account)
     TF_STATE_BLOB_CONTAINER_NAME: $(kv-tf-state-blob-container-name)
