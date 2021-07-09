@@ -9,6 +9,8 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
+steps:
+
 - task: AzureKeyVault@2
   inputs:
     azureSubscription: 'VSP-DEVOPs-Connection'
@@ -16,7 +18,6 @@ pool:
     SecretsFilter: '*'
     RunAsPreJob: true
 
-steps:
 - bash: ls
   displayName: 'Get dir listing'
   workingDirectory: $(System.DefaultWorkingDirectory)/terraform
