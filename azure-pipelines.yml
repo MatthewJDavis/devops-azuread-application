@@ -10,6 +10,20 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
+
+- task: AzureKeyVault@2
+  inputs:
+    azureSubscription: 'VSP-DEVOPs-Connection'
+    KeyVaultName: 'az-kv-eastus2'
+    SecretsFilter: '*'
+    RunAsPreJob: true
+
 - bash: ls
   displayName: 'Get dir listing'
   workingDirectory: $(System.DefaultWorkingDirectory)/terraform
+
+- bash: |
+    echo $TF_STATE_BLOB_ACCOUNT_NAME
+  displayName: Get Secret
+  env:
+    TF_STATE_BLOB_ACCOUNT_NAME:   $(kv-tf-state-blob-account)
