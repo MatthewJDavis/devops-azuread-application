@@ -33,6 +33,8 @@ steps:
 - bash: terraform plan -out deployment.tfplan
   displayName: Terraform Plan
   workingDirectory: $(System.DefaultWorkingDirectory)/terraform
+  env:
+    TF_VAR_app_password: $(kv-tf-app-password)
   
 - bash: ls
   displayName: 'Get dir listing'
