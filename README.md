@@ -33,5 +33,6 @@ Set as an environment variable.
 ```
 
 ```bash
+terraform init -backend-config=azure.conf
 terraform apply
 ```

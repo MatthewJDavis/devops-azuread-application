@@ -1,5 +1,6 @@
 terraform {
   backend "azurerm" {
+    key = "msgraphdirrole.tfstate"
   }
 }
 
