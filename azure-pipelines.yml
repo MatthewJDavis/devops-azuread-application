@@ -41,7 +41,7 @@ steps:
     ARM_CLIENT_SECRET: $(kv-arm-client-secret)
   
 
-- bash: terraform apply -out deployment.tfplan --auto-approve
+- bash: terraform apply deployment.tfplan --auto-approve
   displayName: Terraform Apply
   workingDirectory: $(System.DefaultWorkingDirectory)/terraform
   env:
